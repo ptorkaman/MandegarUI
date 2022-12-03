@@ -1,0 +1,43 @@
+.complementary-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.complementary-item {
+    flex: 20%;
+    margin: 0.5rem;
+    padding: 0.2rem;
+}
+
+.complementary-item>div {
+    text-align: center;
+    flex-wrap: nowrap;
+    background: #eff6fb;
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    margin: auto;
+    padding: 2rem;
+    border: 2px solid #d8ecfd;
+    cursor: pointer;
+}
+
+@media (max-width: 1180px) {
+    .complementary-items {
+        flex-direction: column;
+    }
+    .complementary-item {
+        flex: 100%;
+    }
+}
+
+.beat:hover {
+    animation: beat 0.3s infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes beat {
+    to {
+        transform: scale(1.1);
+    }
+}

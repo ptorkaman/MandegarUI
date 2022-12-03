@@ -1,0 +1,22 @@
+<div class="position-relative">
+    <p-multiSelect [readonly]="true" [(ngModel)]="selecteds" [options]="selectedItems" display="chip" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" (ngModelChange)="updateSelecteds($event)"></p-multiSelect>
+    <button pButton pRipple type="button" (click)="display=true" icon="pi pi-search" class="p-button-success p-button-text position-absolute open-lookup"></button>
+</div>
+
+
+
+<p-dialog *ngIf="display" [contentStyle]="{'overflow': 'visible'}" [(visible)]="display" header="جستجو" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="medium" (onHide)="cancelClick()">
+
+    <ng-template pTemplate="content">
+        <app-tree [items]="items" [expand]="expand" [selectionMode]="selectionMode" [returnType]="returnType" (nodeSelected)="selectedIds($event)"></app-tree>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" *ngIf="showModalFooterButtons">
+        <div class="p-text-left text-left">
+            <button pButton pRipple label="ثبت" icon="pi pi-save" iconPos="left" (click)="acceptClick()"></button>
+            <button pButton pRipple label="انصراف" icon="pi pi-times" iconPos="left" class="p-button-secondary" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+
+</p-dialog>

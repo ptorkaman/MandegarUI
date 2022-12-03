@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-lg-12">
+      <nb-card>
+          <nb-card-header class="clearfix">
+              <div class="float-right">
+                  <app-page-header [title]="'Pages.SessionApprovals.InsertSessionApprovals'" [icon]="'assets/images/icons/proceeding-insert.png'">
+                  </app-page-header>
+              </div>
+              <div class="float-left">
+                  <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+              </div>
+          </nb-card-header>
+          <nb-card-body>
+              <form [formGroup]="form" aria-labelledby="title">
+                  <div class="p-fluid p-formgrid p-grid row">
+
+                    <div class="p-field p-col-12 col-md-4">
+                      <label class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeetingMemeber.MeetingName" | translate}}</label>
+                      <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentMeetingId" [options]="meetings" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                          [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                      </p-dropdown>
+                      <mandegar-error-messages [control]="f.departmentMeetingId"></mandegar-error-messages>
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" [requiredMark]>{{"Pages.SessionApprovals.SessionApprovalMembers" | translate}}</label>
+                    <p-multiSelect [filter]="true" [options]="members" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" formControlName="memberIds" [showClear]="true" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}"
+                        defaultLabel="{{'Public.Select' | translate}}"></p-multiSelect>
+                        <mandegar-error-messages [control]="f.memberIds"></mandegar-error-messages>
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" [requiredMark]>{{"Pages.SessionApprovals.Deadline" | translate}}</label>
+                    <app-date-picker formControlName="deadline"></app-date-picker>
+                    <mandegar-error-messages [control]="f.deadline"></mandegar-error-messages>
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-12">
+                    <label class="form-control-label" [requiredMark]>{{"Pages.SessionApprovals.Test" | translate}}</label>
+                    <p-editor formControlName="test" [style]="{'height':'320px'}"></p-editor>
+                    <mandegar-error-messages [control]="f.test"></mandegar-error-messages>
+                  </div>
+
+                  </div>
+              </form>
+          </nb-card-body>
+          <nb-card-footer>
+              <div class="p-text-left">
+                  <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="sendRequest()"></button>
+                  <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+              </div>
+          </nb-card-footer>
+      </nb-card>
+  </div>
+</div>

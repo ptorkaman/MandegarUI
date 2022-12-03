@@ -1,0 +1,41 @@
+<p-dialog [(visible)]="display" header="ویرایش" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="small" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]="form">
+
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label" [requiredMark]>{{ "Public.Bank" | translate }}</label>
+                        <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="bankId" [options]="banks" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                        </p-dropdown>
+                        <mandegar-error-messages [control]="f.bankId"></mandegar-error-messages>
+                    </div>
+
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label">{{"Public.Branch" | translate}}</label>
+                        <input pInputText maxlength="32" formControlName="branchName" placeholder="{{ 'Public.Enter' | translate }}" />
+                    </div>
+
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label" requiredMark>{{"Public.AccountNumber" | translate}}</label>
+                        <input pInputText maxlength="20" [pKeyFilter]="allowNumberAndDashAndDot" formControlName="accountNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                        <mandegar-error-messages [control]="f.accountNumber"></mandegar-error-messages>
+                    </div>
+
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label">{{"Public.Sheba" | translate}}</label>
+                        <p-inputMask mask="IR99-9999-9999-9999-9999-9999-99" placeholder="IR__-____-____-____-____-____-__" appEnglishNumberOnly pKeyFilter="pint" formControlName="sheba" class="ltr"></p-inputMask>
+                        <mandegar-error-messages [control]="f.sheba"></mandegar-error-messages>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{ 'Public.Submit' | translate }}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

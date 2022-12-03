@@ -1,0 +1,18 @@
+::ng-deep {
+    .p-inputtext:read-only {
+        box-shadow: initial;
+        border-color: #dfe3e7 !important;
+        cursor: default;
+    }
+    .p-inputtext:read-only:hover {
+        border-color: #dfe3e7 !important;
+    }
+    .p-inputtext:enabled:focus:read-only {
+        box-shadow: initial;
+        border-color: #dfe3e7 !important;
+        cursor: default;
+    }
+    .p-inputtext:enabled:focus:read-only:hover {
+        border-color: #dfe3e7 !important;
+    }
+}

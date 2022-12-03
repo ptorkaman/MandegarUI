@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.ComplementaryAddress'" [icon]="'assets/images/icons/home.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="p-col-12 col-md-8 mb-2">
+                            <p-panel header="اطلاعات نشانی">
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" requiredMark>{{"Pages.Staff.Phone" | translate}}</label>
+                                    <input pInputText [pKeyFilter]="allowNumber" maxlength="11" formControlName="phone" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.phone"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" requiredMark>{{"Pages.Staff.Mobile1" | translate}}</label>
+                                    <input pInputText [pKeyFilter]="allowNumber" maxlength="11" formControlName="mobile1" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.mobile1"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.Staff.Mobile2" | translate}}</label>
+                                    <input pInputText [pKeyFilter]="allowNumber" maxlength="11" formControlName="mobile2" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.Staff.OtherWorkPhone" | translate}}</label>
+                                    <input pInputText [pKeyFilter]="allowNumber" maxlength="11" formControlName="otherWorkPhone" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.Staff.OtherWorkName" | translate}}</label>
+                                    <input pInputText maxlength="50" formControlName="otherWorkName" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" requiredMark>{{"Pages.User.Email" | translate}}</label>
+                                    <input pInputText maxlength="100" formControlName="email" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.email"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.Staff.AddressTypes" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="addressTypeId" [options]="addressTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-8">
+                                    <label class="form-control-label" requiredMark>{{"Pages.Staff.Address" | translate}}</label>
+                                    <input pInputText maxlength="200" formControlName="address" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.address"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-12">
+                                    <label class="form-control-label">{{"Pages.DepartmentActivitys.Description" | translate}}</label>
+                                    <input pInputText maxlength="150" formControlName="description" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+                            </p-panel>
+                        </div>
+                        <div class="p-col-12 col-md-4">
+                            <app-staff-info [staffId]="staffId"></app-staff-info>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

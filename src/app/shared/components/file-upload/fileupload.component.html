@@ -1,0 +1,55 @@
+<ng-container *ngIf="!onlyShowFiles">
+    <p-messages *ngIf="info" severity="info" class="info-message">
+        <ng-template pTemplate>
+            <i class="pi pi-info-circle info-message-icon"></i>
+            <div class="p-ml-2">{{info}}</div>
+        </ng-template>
+    </p-messages>
+    <p-fileUpload [accept]="accept" #fileUpload [auto]="true" [disabled]="disabled" [invalidFileSizeMessageSummary]="invalidFileSizeMessageSummary" [invalidFileSizeMessageDetail]="invalidFileSizeMessageDetail" [invalidFileTypeMessageDetail]="invalidFileTypeMessageDetail"
+        [invalidFileTypeMessageSummary]="invalidFileTypeMessageSummary" chooseLabel="{{'Public.ChooseLabel' | translate }}" name="myfile[]" [maxFileSize]="maxFileSize" [customUpload]="true" [multiple]="multiple" (uploadHandler)="onLicenceUpload($event,fileUpload)">
+        <ng-template let-file pTemplate="file">
+        </ng-template>
+        <ng-template pTemplate="content" let-files>
+            <div class="pdn-fileupload-content">
+
+                <div *ngIf="!uploadedFiles.length" class="no-record">فایلی وجود ندارد</div>
+
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">
+                        <i class="mdi mdi-file-outline"></i> <span style="unicode-bidi: plaintext;">{{file.size}} KB |
+                            {{file.name}} </span>
+                        <span class="container-button">
+                            <button pButton pRipple type="button" icon="pi pi-trash"
+                                class="p-button-rounded p-button-danger" (click)="delete(file.id)"></button>
+                            <button pButton pRipple type="button" icon="pi pi-download"
+                                class="p-button-rounded p-button-primary" (click)="download(file.id)"></button>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </ng-template>
+    </p-fileUpload>
+
+    <span *ngIf="progressBarIsShow">
+        <p-progressBar [value]="progress"></p-progressBar>
+    </span>
+</ng-container>
+
+
+<ng-container *ngIf="onlyShowFiles">
+    <div class="pdn-fileupload-content">
+
+        <div *ngIf="!uploadedFiles.length" class="no-record">فایلی وجود ندارد</div>
+
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">
+                <i class="mdi mdi-file-outline"></i> <span style="unicode-bidi: plaintext;">{{file.size}} KB |
+                    {{file.name}} </span>
+                <span class="container-button">
+                    <button pButton pRipple type="button" icon="pi pi-download"
+                        class="p-button-rounded p-button-primary" (click)="download(file.id)"></button>
+                </span>
+            </li>
+        </ul>
+    </div>
+</ng-container>

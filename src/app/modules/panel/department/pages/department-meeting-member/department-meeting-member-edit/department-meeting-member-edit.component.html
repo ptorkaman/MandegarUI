@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.DepartmentMeetingMemeber.EditMeetingMemebr'" [icon]="'assets/images/icons/edit-user.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form" aria-labelledby="title">
+                    <div class="p-fluid p-formgrid p-grid row">
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeetingMemeber.MeetingName" | translate}}</label>
+                            <p-dropdown [filter]="true" (onChange)="drpMeetingNameChange($event)" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentMeetingId" [options]="meetings" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                            </p-dropdown>
+                            <mandegar-error-messages [control]="f.departmentMeetingId"></mandegar-error-messages>
+                        </div>
+
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeetingMemeber.DepartmentName" | translate}}</label>
+                            <p-dropdown (onChange)="drpMeetingChange($event)" [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentId" [options]="departments" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                            </p-dropdown>
+
+                            <mandegar-error-messages [control]="f.departmentId"></mandegar-error-messages>
+                        </div>
+
+                        <div class="p-field p-col-12 col-md-6">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeetingMemeber.DepartmentMembers" | translate}}</label>
+                            <p-multiSelect [disabled]="multiselectDisabled" [options]="members" placeholder="{{'Public.Select' | translate}}" appendTo="body" display="chip" formControlName="memberIds" selectedItemsLabel="{{'Public.SelectedItemsLabel' | translate}}" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" optionLabel="name" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"></p-multiSelect>
+                            <mandegar-error-messages [control]="f.memberIds"></mandegar-error-messages>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="sendRequest()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

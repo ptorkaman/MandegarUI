@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.ComplementarySacrifice'" [icon]="'assets/images/icons/staff-sacrifice.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="p-col-12 col-md-8 mb-2">
+                            <p-panel header="اطلاعات ایثارگری">
+
+                                <div class="p-field p-col-12 col-md-3">
+                                    <label class="form-control-label">{{"Public.IsMartyrFamily" | translate}}</label>
+                                    <p-inputSwitch formControlName="isMartyrFamily"></p-inputSwitch>
+                                </div>
+                                <div class="p-field p-col-12 col-md-9">
+                                    <label class="form-control-label">{{ "Pages.Staff.RelationName" | translate }}</label>
+                                    <p-dropdown [disabled]="!staffSacrifice.isMartyrFamily" [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="relationId" [options]="relations" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.relationId"></mandegar-error-messages>
+                                </div>
+
+                                <div class=" p-field p-col-12 col-md-3 ">
+                                    <label class="form-control-label ">{{"Public.IsFreedMan" | translate}}</label>
+                                    <p-inputSwitch formControlName="isFreedMan"></p-inputSwitch>
+                                </div>
+                                <div class="p-field p-col-12 col-md-9 ">
+                                    <app-sacrifice-duration [title]="'Public.CaptivityDuration'" formControlName="captivityDuration" [disable]="!staffSacrifice.isFreedMan">
+                                    </app-sacrifice-duration>
+                                    <mandegar-error-messages [control]="f.captivityDuration"></mandegar-error-messages>
+
+                                </div>
+
+                                <div class=" p-field p-col-12 col-md-3 ">
+                                    <label class="form-control-label">{{"Public.IsVeteran" | translate}}</label>
+                                    <p-inputSwitch formControlName="isVeteran"></p-inputSwitch>
+                                </div>
+                                <div class="p-field p-col-12 col-md-9">
+                                    <label class="form-control-label">{{"Public.VeteranPercentage" | translate}}</label>
+                                    <input pInputText type="text" [pKeyFilter]="allowNumber" maxlength="2" formControlName="veteranPercentage" [readonly]="!staffSacrifice.isVeteran" />
+                                    <mandegar-error-messages [control]="f.veteranPercentage"></mandegar-error-messages>
+
+                                </div>
+
+                                <div class=" p-field p-col-12 col-md-3 ">
+                                    <label class="form-control-label ">{{"Public.IsSacrificer" | translate}}</label>
+                                    <p-inputSwitch formControlName="isSacrificer"></p-inputSwitch>
+                                </div>
+                                <div class="p-field p-col-12 col-md-9 ">
+                                    <app-sacrifice-duration [title]="'Public.BattlefieldPresenceDuration'" formControlName="battlefieldPresenceDuration" [disable]="!staffSacrifice.isSacrificer">
+                                    </app-sacrifice-duration>
+                                    <mandegar-error-messages [control]="f.battlefieldPresenceDuration"></mandegar-error-messages>
+
+                                </div>
+
+
+                            </p-panel>
+                        </div>
+                        <div class="p-col-12 col-md-4 ">
+                            <app-staff-info [staffId]="staffId"></app-staff-info>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left ">
+                    <button pButton pRipple label="{{ 'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined " (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

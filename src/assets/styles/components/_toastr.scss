@@ -1,0 +1,15 @@
+.toast-container {
+    .toast {
+        &-title {
+            font-size: .9rem;
+            margin-bottom: 10px;
+        }
+        &-message {
+            font-size: .82rem;
+        }
+    }
+}
+
+.ngx-toastr {
+    text-align: right;
+}

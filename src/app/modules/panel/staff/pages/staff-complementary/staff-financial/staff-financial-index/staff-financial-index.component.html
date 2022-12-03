@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.ComplementaryFinancial'" [icon]="'assets/images/icons/staff-financial.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+
+                <div class="row">
+                    <div class="p-col-12 col-md-8 mb-2">
+                        <div class="scrollable">
+                            <p-table #dt [value]="financials" [columns]="cols" [lazy]="false" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [showCurrentPageReport]="true" currentPageReportTemplate="{first} - {last} از {totalRecords} آیتم" [loading]="loading" [rowsPerPageOptions]="[10,25,50]"
+                                paginatorDropdownAppendTo="body" styleClass="p-datatable-striped p-datatable-gridlines">
+
+                                <ng-template pTemplate="caption">
+                                    <div class="p-d-flex p-ai-center p-jc-between">
+                                        <div class="right">
+                                            <button pButton pRipple label="افزودن" icon="pi pi-plus" class="p-mr-2" (click)="navigateToAdd()"></button>
+                                        </div>
+
+                                        <div class="left"> </div>
+                                    </div>
+                                </ng-template>
+
+                                <ng-template pTemplate="header" let-columns>
+                                    <tr>
+                                        <th *ngFor="let col of columns" class="text-center">
+                                            {{col.header | translate}}
+                                        </th>
+                                        <th class="text-center"> {{'Public.Operation' | translate}} </th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                                    <tr>
+                                        <td [ngSwitch]="col.field" *ngFor="let col of columns" class="text-center">
+                                            <ng-container *ngSwitchDefault>
+                                                {{rowData[col.field]}}
+                                            </ng-container>
+                                        </td>
+                                        <td class="text-center">
+                                            <button pButton type="button" class="p-button-rounded  p-button-text" icon="pi pi-ellipsis-h" (click)="rowBtnClick(menu,rowData,$event)"></button>
+                                        </td>
+                                    </tr>
+
+                                </ng-template>
+                                <ng-template pTemplate="emptymessage" let-columns>
+                                    <tr>
+                                        <td class="text-right" [attr.colspan]="columns.length + 1">
+                                            رکوردی یافت نشد
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                    <div class="p-col-12 col-md-4">
+                        <app-staff-info [staffId]="staffId"></app-staff-info>
+                    </div>
+                </div>
+
+            </nb-card-body>
+
+        </nb-card>
+    </div>
+</div>
+
+
+<p-menu #menu popup="popup" appendTo="body" [model]="btnMenuItems" styleClass="tbl__ui-menu"></p-menu>
+
+<p-confirmDialog header="حذف" acceptLabel="بله" rejectLabel="خیر" icon="pi pi-exclamation-triangle" acceptButtonStyleClass="p-button-danger"></p-confirmDialog>
+
+<router-outlet></router-outlet>

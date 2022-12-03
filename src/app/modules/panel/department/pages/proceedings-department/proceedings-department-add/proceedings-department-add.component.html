@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-lg-12">
+      <nb-card>
+          <nb-card-header class="clearfix">
+              <div class="float-right">
+                  <app-page-header [title]="'Pages.ProceedingsDepartment.InsertProceeding'" [icon]="'assets/images/icons/proceeding-insert.png'">
+                  </app-page-header>
+              </div>
+              <div class="float-left">
+                  <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+              </div>
+          </nb-card-header>
+          <nb-card-body>
+              <form [formGroup]="form" aria-labelledby="title">
+                  <div class="p-fluid p-formgrid p-grid row">
+
+                      <div class="p-field p-col-12 col-md-4">
+                          <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeeting.Name" | translate}}</label>
+                          <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentMeetingId" [options]="meetings" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                    [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                          </p-dropdown>
+                          <mandegar-error-messages [control]="f.departmentMeetingId"></mandegar-error-messages>
+                      </div>
+
+                      <div class="p-field p-col-12 col-md-4">
+                        <label class="form-control-label" [requiredMark]>{{"Pages.ProceedingsDepartment.StartDate" | translate}}</label>
+                        <app-date-picker formControlName="startDate"></app-date-picker>
+                        <mandegar-error-messages [control]="f.startDate"></mandegar-error-messages>
+                      </div>
+
+                    <div class="p-field p-col-12 col-md-4">
+                        <label class="form-control-label" [requiredMark]>{{"Pages.ProceedingsDepartment.StartTime" | translate}}</label>
+                        <p-calendar appendTo="body" [timeOnly]="true" formControlName="startTime" inputId="startTime"></p-calendar>
+                        <mandegar-error-messages [control]="f.startTime"></mandegar-error-messages>
+                    </div>
+
+                    <div class="p-field p-col-12 col-md-4">
+                      <label class="form-control-label" [requiredMark]>{{"Pages.ProceedingsDepartment.EndDate" | translate}}</label>
+                      <app-date-picker formControlName="endDate"></app-date-picker>
+                      <mandegar-error-messages [control]="f.endDate"></mandegar-error-messages>
+                    </div>
+
+                  <div class="p-field p-col-12 col-md-4">
+                      <label class="form-control-label" [requiredMark]>{{"Pages.ProceedingsDepartment.EndTime" | translate}}</label>
+                      <p-calendar appendTo="body" [timeOnly]="true" formControlName="endTime" inputId="endTime"></p-calendar>
+                      <mandegar-error-messages [control]="f.endTime"></mandegar-error-messages>
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.Programs" | translate}}</label>
+                    <input appEnglishNumberOnly pInputText formControlName="programs" placeholder="{{ 'Public.Enter' | translate }}" />
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-12">
+                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.Comments" | translate}}</label>
+                    <textarea pInputTextarea appEnglishNumberOnly formControlName="comments" placeholder="{{ 'Public.Enter' | translate }}"></textarea>
+                  </div>
+
+                  <div class="p-field p-col-12 col-md-12">
+                    <label class="form-control-label">{{"Public.Description" | translate}}</label>
+                    <textarea pInputTextarea appEnglishNumberOnly formControlName="description" placeholder="{{ 'Public.Enter' | translate }}"></textarea>
+                  </div>
+
+                </div>
+              </form>
+          </nb-card-body>
+          <nb-card-footer>
+              <div class="p-text-left">
+                  <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="sendRequest()"></button>
+                  <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+              </div>
+          </nb-card-footer>
+      </nb-card>
+  </div>
+</div>

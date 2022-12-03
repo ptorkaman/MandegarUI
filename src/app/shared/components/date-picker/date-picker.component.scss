@@ -1,0 +1,58 @@
+.input-group {
+     :host {
+        .datepicker-container {
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+}
+
+:host {
+    flex: 1;
+    .form-control {
+        background-color: #fff !important;
+        direction: ltr;
+        padding: 0.5rem 0.75rem;
+        padding-right: 65px;
+    }
+    .datepicker-container {
+        position: relative;
+        .filled {
+            top: -20px;
+            font-size: 12px;
+        }
+        .fa {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 7px 10px 7px 5px;
+            font-size: 12pt;
+            border-radius: 0.25rem 0 0 0.25rem;
+            opacity: 0.8;
+            color: #7d7d7d;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .fa-calendar {
+            right: 1px;
+            z-index: 1000000;
+        }
+        .fa-times,
+        .fa-clock {
+            right: 32px;
+            border-radius: 0;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+    }
+}
+
+::ng-deep {
+    .popover {
+        z-index: 999999999999 !important;
+    }
+}

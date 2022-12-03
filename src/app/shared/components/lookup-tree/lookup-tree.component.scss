@@ -1,0 +1,10 @@
+.open-lookup {
+    top: 0;
+    left: 0;
+}
+
+::ng-deep {
+    .p-multiselect-trigger {
+        display: none !important;
+    }
+}

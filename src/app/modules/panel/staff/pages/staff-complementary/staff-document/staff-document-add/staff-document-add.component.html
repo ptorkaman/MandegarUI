@@ -1,0 +1,55 @@
+<p-dialog [(visible)]="display" header="ثبت " [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="medium" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <form [formGroup]="form">
+            <div class="row">
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" [requiredMark]>{{ "Pages.Staff.EducationType" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="educationId" [options]="educations" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.educationId"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.Staff.DegreeReceiptDate" | translate}}</label>
+                    <app-date-picker formControlName="degreeReceiptDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.InstitutionName" | translate}}</label>
+                    <input pInputText maxlength="50" formControlName="institutionName" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.institutionName"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.CourseName" | translate}}</label>
+                    <input pInputText maxlength="50" formControlName="courseName" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.courseName"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.StartDate" | translate}}</label>
+                    <app-date-picker formControlName="startDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.Staff.Period" | translate}}</label>
+                    <input pInputText [pKeyFilter]="allowNumber" formControlName="period" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-12">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.UploadDocuments" |translate}}</label>
+                    <app-fileupload [multiple]="true" accept="image/*" formControlName="documents" [maxFileSize]="5242880" downloadUrl="Api/AttachedDocument/DownloadImageFile" info="{{'Pages.Staff.FileUploadInfo' | translate}}" invalidFileSizeMessageDetail="{{'Page.Subject.InvalidFileSizeMessageDetail' | translate}}">
+                    </app-fileupload>
+                    <mandegar-error-messages [control]="f.documents"></mandegar-error-messages>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{ 'Public.Submit' | translate }}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

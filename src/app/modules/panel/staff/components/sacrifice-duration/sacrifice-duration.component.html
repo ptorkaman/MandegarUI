@@ -1,0 +1,16 @@
+<div>
+    <label class="form-control-label title">{{ title | translate }}</label>
+    <div class="wrp d-flex">
+        <div class="p-field p-col-12 col-md-4">
+            <input pInputText [ngClass]="getInvalidClass()" placeholder="{{ 'Public.Year' | translate }}" maxlength="2" [(ngModel)]="year" (input)="changeValue()" [pKeyFilter]="allowNumber" [disabled]="disable" />
+        </div>
+        <div class="p-field p-col-12 col-md-4">
+            <input pInputText [ngClass]="getInvalidClass()" placeholder="{{ 'Public.Month' | translate }}" maxlength="2" [(ngModel)]="month" (input)="changeValue()" [pKeyFilter]="allowNumber" [disabled]="disable" />
+
+        </div>
+        <div class="p-field p-col-12 col-md-4">
+            <input pInputText [ngClass]="getInvalidClass()" placeholder="{{ 'Public.Day' | translate }}" maxlength="2" [(ngModel)]="day" (input)="changeValue()" [pKeyFilter]="allowNumber" [disabled]="disable" />
+        </div>
+        <small class="err"> {{errorMessage}} </small>
+    </div>
+</div>

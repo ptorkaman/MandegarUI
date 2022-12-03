@@ -1,0 +1,36 @@
+<p-dialog [contentStyle]="{'overflow': 'visible'}" [(visible)]="display" header="ویرایش " [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="small" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]="form">
+
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label" [requiredMark]>{{"Public.Name" | translate}}</label>
+                        <input appEnglishNumberOnly pInputText maxlength="32" formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                        <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                    </div>
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label" [requiredMark]>{{"Pages.StudyGrades.EducationBasicCode" | translate}}</label>
+                        <input appEnglishNumberOnly pInputText formControlName="educationBasicCode" placeholder="{{ 'Public.Enter' | translate }}" />
+                        <mandegar-error-messages [control]="f.educationBasicCode"></mandegar-error-messages>
+                    </div>
+                    <div class="p-field p-col-12 col-md-12">
+                        <label class="form-control-label d-block"[requiredMark]>{{"Pages.StudyGrades.StudyFieldId" | translate}}</label>
+                        <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="studyFieldId" [options]="studyFieldList" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                            placeholder="{{'Public.Select' | translate}}">
+                        </p-dropdown>
+                        <mandegar-error-messages [control]="f.studyFieldId"></mandegar-error-messages>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+
+</p-dialog>

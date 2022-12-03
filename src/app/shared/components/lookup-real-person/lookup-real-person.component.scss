@@ -1,0 +1,13 @@
+.open-lookup {
+    top: 0;
+    left: 0;
+}
+
+::ng-deep {
+    .p-multiselect-trigger {
+        display: none !important;
+    }
+    // .p-dialog .p-dialog-content {
+    //     padding: 0.5rem 0;
+    // }
+}

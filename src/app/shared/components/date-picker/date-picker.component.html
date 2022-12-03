@@ -1,0 +1,8 @@
+<div class="datepicker-container">
+    <input [ngClass]="getInvalidClass()" [ngStyle]="{'color': color}" (blur)="onblur()" type="text" [id]="name" [name]="name" class="form-control mandegar-datepicker" [placeholder]="placeholder" [(ngModel)]="valueP" #datepicker [attr.disabled]="isDisabled ? true : null"
+        [imask]="mask" [unmask]="false" (focus)="setDate($event.target.value)" (input)="setDate($event.target.value)">
+    <i class="fa fa-times" *ngIf="value!==null && !isDisabled" (click)="clear()" pTooltip="خالی کردن تاریخ" tooltipPosition="top"></i>
+    <i class="fa fa-calendar-alt" *ngIf="!isDisabled" (click)="show()" pTooltip="انتخاب تاریخ" tooltipPosition="top"></i>
+    <i class="fa fa-clock" *ngIf="value===null && !isDisabled" (click)="getDate()" pTooltip="تاریخ امروز" tooltipPosition="top"></i>
+    <input type="hidden" id="{{name}}_date">
+</div>

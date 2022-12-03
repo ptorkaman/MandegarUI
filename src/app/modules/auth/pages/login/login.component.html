@@ -1,0 +1,27 @@
+<h1 id="title" class="title">{{"Pages.Auth.Login" | translate}}</h1>
+<p class="sub-title">خوش آمدید! با نام کاربری وارد شوید.</p>
+
+<form [formGroup]="form" aria-labelledby="title">
+
+    <div class="form-control-group">
+        <label class="label" requiredMark>{{"Pages.Auth.Username" | translate}}</label>
+        <input nbInput fullWidth fieldSize="large" formControlName="username" placeholder="{{'Public.Enter' | translate}}" autocomplete="off">
+        <mandegar-error-messages [control]="f.username"></mandegar-error-messages>
+    </div>
+
+    <div class="form-control-group">
+        <span class="label-with-link">
+      <label class="label" requiredMark>{{"Pages.Auth.Password" | translate}}</label>
+      <a class="forgot-password caption-2" routerLink="../forget-password" tabindex="-1">رمز خود را فراموش کرده اید؟</a>
+    </span>
+        <input nbInput fullWidth type="password" fieldSize="large" formControlName="password" placeholder="{{'Public.Enter' | translate}}" autocomplete="off">
+        <mandegar-error-messages [control]="f.password"></mandegar-error-messages>
+    </div>
+
+    <app-captcha formControlName="captcha" [reloadCaptcha]="reloadCaptcha" (OnGetCaptcha)="OnGetCaptcha($event)">
+    </app-captcha>
+
+    <button nbButton fullWidth status="primary" size="large" [disabled]="(!form.valid || !disableBtn)" (click)="login()">
+    {{'Pages.Auth.Login' | translate}}
+  </button>
+</form>

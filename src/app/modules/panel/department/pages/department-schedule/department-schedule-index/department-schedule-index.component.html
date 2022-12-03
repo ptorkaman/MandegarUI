@@ -1,0 +1,232 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>
+        <app-page-header
+          [title]="'Pages.DepartmentSchedules.DepartmentSchedule'"
+          [icon]="'assets/images/icons/grouptask.png'"
+        >
+        </app-page-header>
+      </nb-card-header>
+      <nb-card-body>
+        <p-fieldset
+          class="search small-view"
+          legend="{{ 'Public.Search' | translate }}"
+          [toggleable]="true"
+        >
+          <div [formGroup]="form">
+            <div class="p-fluid p-formgrid p-grid row"></div>
+            <div class="row">
+              <div class="p-field p-col-3 col-md-3">
+                <label class="form-control-label" >{{
+                  "Public.Name" | translate
+                }}</label>
+                <input
+                  appEnglishNumberOnly
+                  pInputText
+                  formControlName="name"
+                  placeholder="{{ 'Public.Enter' | translate }}"
+                />
+              </div>
+              <div class="p-field p-col-3 col-md-3">
+                <label class="form-control-label" >{{
+                  "Pages.DepartmentSchedules.TimeLimit" | translate
+                }}</label>
+                <input
+                  appEnglishNumberOnly
+                  pInputText
+                  maxlength="32"
+                  formControlName="timeLimit"
+                  placeholder="{{ 'Public.Enter' | translate }}"
+                />
+              </div>
+              <div class="p-field p-col-3 col-md-3">
+                <label class="form-control-label d-block" >{{
+                  "Pages.DepartmentSchedules.ExecutiveCalendarName" | translate
+                }}</label>
+                <p-dropdown
+                [filter]="true"
+                emptyFilterMessage="{{ 'Public.EmptyFilterMessage' | translate }}"
+                [showClear]="true"
+                formControlName="executiveCalendarId"
+                [options]="executiveCalendarList"
+                appendTo="body"
+                baseZIndex="1"
+                emptyMessage="{{ 'Public.EmptyMessage' | translate }}"
+                placeholder="{{ 'Public.Select' | translate }}"
+              >
+              </p-dropdown>
+              </div>
+              <!-- <div class="p-field p-col-3 col-md-3">
+                <label class="form-control-label" >{{
+                  "Pages.DepartmentSchedules.FromDate" | translate
+                }}</label>
+                <app-date-picker formControlName="fromDate"></app-date-picker>
+              </div>
+              <div class="p-field p-col-3 col-md-3">
+                <label class="form-control-label">{{
+                  "Pages.DepartmentSchedules.ToDate" | translate
+                }}</label>
+                <app-date-picker formControlName="toDate"></app-date-picker>
+              </div> -->
+            </div>
+              <div class="row mt-1 text-left">
+                <div class="col-md-12">
+                  <button
+                    pButton
+                    pRipple
+                    icon="pi pi-search"
+                    label="{{ 'Public.Search' | translate }}"
+                    tooltipPosition="bottom"
+                    class="p-button-success mr-1"
+                    (click)="search()"
+                    [loading]="loading"
+                  ></button>
+                  <button
+                    pButton
+                    pRipple
+                    icon="pi pi-undo"
+                    label="{{ 'Public.Clear' | translate }}"
+                    tooltipPosition="bottom"
+                    class="p-button-outlined p-button-primary"
+                    (click)="clearForm()"
+                  ></button>
+                </div>
+              </div>
+          </div>
+        </p-fieldset>
+      </nb-card-body>
+      <nb-card-body>
+        <div class="scrollable">
+          <p-table
+            #dt
+            [value]="data"
+            [columns]="cols"
+            [reorderableColumns]="true"
+            [lazy]="true"(onLazyLoad)="loadLazy($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="{first} - {last} از {totalRecords} آیتم"
+            [loading]="loading"
+            [rowsPerPageOptions]="[10, 25, 50]"
+            paginatorDropdownAppendTo="body"
+            styleClass="p-datatable-striped p-datatable-gridlines"
+          >
+            <ng-template pTemplate="caption">
+              <div class="p-d-flex p-ai-center p-jc-between clearfix">
+                <div class="float-right">
+                  <button
+                    pButton
+                    pRipple
+                    styleClass="p-button-sm"
+                    label="{{ 'Public.Add' | translate }}"
+                    icon="fa fa-plus"
+                    class="p-mr-2"
+                    (click)="navigateToAdd()"
+                  ></button>
+                </div>
+
+                <div class="float-left">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input
+                      pInputText
+                      type="text"
+                      (input)="dt.filterGlobal($event.target.value, 'contains')"
+                      placeholder="جستجو..."
+                    />
+                  </span>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th
+                  *ngFor="let col of columns"
+                  class="text-center"
+                  pReorderableColumn
+                >
+                  {{ col.header | translate }}
+                </th>
+                <th class="text-center" [width]="100">
+                  {{ "Public.Operation" | translate }}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template
+              pTemplate="body"
+              let-rowData
+              let-columns="columns"
+              let-index="rowIndex"
+            >
+              <tr>
+                <td
+                  [ngSwitch]="col.field"
+                  *ngFor="let col of columns"
+                  class="text-center"
+                >
+                  <ng-container *ngSwitchCase="'fromDate'">
+                    {{ rowData[col.field] | dateTimeFormat: "date":"fa" }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'toDate'">
+                    {{ rowData[col.field] | dateTimeFormat: "date":"fa" }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'isActive'">
+                    <i
+                      class="pi pi-check"
+                      *ngIf="rowData[col.field] === true"
+                    ></i>
+                    <i
+                      class="pi pi-times"
+                      *ngIf="rowData[col.field] === false"
+                    ></i>
+                  </ng-container>
+
+                  <ng-container *ngSwitchDefault>
+                    {{ rowData[col.field] }}
+                  </ng-container>
+                </td>
+                <td class="text-center">
+                  <button
+                    pButton
+                    type="button"
+                    class="p-button-rounded p-button-text"
+                    icon="pi pi-ellipsis-h"
+                    (click)="rowBtnClick(menu, rowData, $event)"
+                  ></button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td class="text-right" [attr.colspan]="columns.length + 1">
+                  رکوردی یافت نشد
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<p-menu
+  #menu
+  popup="popup"
+  appendTo="body"
+  [model]="btnMenuItems"
+  styleClass="tbl__ui-menu"
+></p-menu>
+
+<p-confirmDialog
+  header="حذف"
+  acceptLabel="بله"
+  rejectLabel="خیر"
+  icon="pi pi-exclamation-triangle"
+  acceptButtonStyleClass="p-button-danger"
+></p-confirmDialog>
+
+<router-outlet></router-outlet>

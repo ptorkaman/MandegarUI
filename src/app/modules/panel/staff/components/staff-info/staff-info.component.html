@@ -1,0 +1,13 @@
+<p-panel header="اطلاعات پرسنلی">
+    <div class="profile-image-wrp position-relative">
+        <img [src]="staffImage" id="userAvatar" data-type="img" class="thumbnail" (error)="onErrorImage($event)" />
+
+        <div class="staff-info">
+            <span>
+        {{staffFullName}}
+         &nbsp;
+        {{staffPersonneliCode}}
+      </span>
+        </div>
+    </div>
+</p-panel>

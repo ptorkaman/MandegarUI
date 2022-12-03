@@ -1,0 +1,71 @@
+<p-dialog [(visible)]="display" header="ویرایش" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="medium" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <form [formGroup]="form">
+            <div class="row">
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" requiredMark>{{ "Pages.Staff.WorkExperienceType" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="workExperienceTypeId" [options]="workExperienceTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.workExperienceTypeId"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.WorkPlaceName" | translate}}</label>
+                    <input pInputText maxlength="100" formControlName="workPlaceName" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{ "Pages.AcademicYears.AcademicYear" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="academicYearId" [options]="academicYears" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.StartDate" | translate}}</label>
+                    <app-date-picker formControlName="startDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.EndDate" | translate}}</label>
+                    <app-date-picker formControlName="endDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label" requiredMark>{{ "Pages.DepartmentMembers.Position" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="positionId" [options]="positions" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.positionId"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{ "Pages.CooperationTypes.CooperationType" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="cooperationTypeId" [options]="cooperations" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{ "Pages.Staff.ActivityField" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="activityFieldId" [options]="activityFields" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 col-md-4">
+                    <label class="form-control-label">{{"Pages.Staff.ActivityDuration" | translate}}</label>
+                    <input pInputText maxlength="100" [pKeyFilter]="allowNumber" formControlName="activityDuration" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+            </div>
+        </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{ 'Public.Submit' | translate }}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

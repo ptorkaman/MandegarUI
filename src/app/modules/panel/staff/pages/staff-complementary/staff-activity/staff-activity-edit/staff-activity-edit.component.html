@@ -1,0 +1,51 @@
+<p-dialog [(visible)]="display" header="ویرایش " [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="medium" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <form [formGroup]="form">
+            <div class="row">
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label" [requiredMark]>{{ "Pages.Staff.ActivityTypeName" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="activityTypeId" [options]="activityTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.activityTypeId"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label">{{"Pages.Staff.PublicationName" | translate}}</label>
+                    <input pInputText maxlength="100" formControlName="publicationName" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label" requiredMark>{{"Public.Title" | translate}}</label>
+                    <input pInputText maxlength="100" formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label">{{"Pages.Staff.PublicationDate" | translate}}</label>
+                    <app-date-picker formControlName="publicationDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label">{{"Public.Subject" | translate}}</label>
+                    <input pInputText maxlength="100" formControlName="subject" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-6">
+                    <label class="form-control-label" [requiredMark]>{{ "Pages.Staff.ActivityCaseName" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="activityCaseId" [options]="activityCases" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.activityTypeId"></mandegar-error-messages>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{ 'Public.Submit' | translate }}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

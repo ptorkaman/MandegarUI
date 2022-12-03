@@ -1,0 +1,289 @@
+{
+    "Pages": {
+      "EvaluationGroup": {
+        "EvaluationGroupList":"لیست گروه ارزشیابی",
+        "EvaluationGroupName":"عنوان گروه ارزشیابی",
+        "InsertEvaluationGroup":"افزودن گروه ارزشیابی",
+        "EditEvaluationGroup":"ویرایش گروه ارزشیابی"
+      },
+        "Home": {
+            "Title": "خانه",
+            "AppTitle": "ماندگار البرز"
+        },
+        "Auth": {
+            "Username": "نام کاربری",
+            "Password": "رمز عبور",
+            "Captcha": "کپچا",
+            "Login": "ورود",
+            "PasswordRecovery": "بازیابی رمز عبور",
+            "Email": "پست الکترونیک",
+            "RePassword": "تکرار رمز عبور",
+            "ChangePassword": "تغییر رمز عبور"
+        },
+        "Role": {
+            "RoleList": "نقش ها",
+            "RoleName": "نام نقش",
+            "InsertRole": "افزودن نقش",
+            "Permissions": "سطوح دسترسی",
+            "EditRole": "ویرایش نقش"
+        },
+        "User": {
+            "Search": "جستجو",
+            "Name": "نام",
+            "Family": "نام خانوادگی",
+            "NewUser": "کاربر جدید",
+            "Operation": "عملیات",
+            "Delete": "حذف",
+            "Edit": "ویرایش",
+            "Personels": "پرسنل",
+            "Users": "کاربران",
+            "Save": "ثبت",
+            "UserName": "نام کاربری",
+            "Status": "وضعیت",
+            "Password": "رمز عبور",
+            "Mobile": "موبایل",
+            "Email": "ایمیل",
+            "BirthDate": "تاریخ تولد",
+            "Gender": "جنسیت",
+            "NationalCode": "کد ملی",
+            "userAvatar": "تصویر",
+            "IsActive": "وضعیت",
+            "Roles": "سطوح دسترسی",
+            "EditUser": "ویرایش کاربر",
+            "LastLogin": "زمان آخرین ورود",
+            "UpdateProfile": "ویرایش پروفایل",
+            "IdentityNumber": "شماره شناسنامه"
+        },
+        "ChangePassword": {
+            "CurrentPassword": "رمز عبور فعلی",
+            "NewPassword": "رمز عبور جدید",
+            "RepeatNewPassword": "تکرار رمز عبور جدید"
+        },
+        "TaskGroups": {
+            "TaskGroup": "گروه وظیفه",
+            "TaskGroupAdd": "افزودن گروه وظیفه",
+            "TaskGroupEdit": "ویرایش گروه وظیفه"
+        },
+        "Tasks": {
+            "Task": "وظیفه",
+            "TaskAdd": "افزودن وظیفه",
+            "TaskEdit": "ویرایش وظیفه",
+            "TaskGroup": "گروه وظیفه"
+        },
+        "Positions": {
+            "Title": "سمت",
+            "Position": "سمت سطح بالا",
+            "PositionAdd": "افزودن سمت",
+            "PositionEdit": "ویرایش سمت"
+        },
+        "AssignTasks": {
+            "AssignTask": "تخصیص وظایف",
+            "Position": "سمت",
+            "Task": "وظیفه",
+            "AssignTaskAdd": "افزودن تخصیص وظایف",
+            "AssignTaskEdit": "ویرایش تخصیص وظایف"
+        },
+        "AssignPositions": {
+            "AssignPosition": "تخصیص سمت به پرسنل",
+            "Position": "سمت",
+            "Staff": "پرسنل",
+            "AssignPositionAdd": "افزودن تخصیص سمت",
+            "AssignPositionEdit": "ویرایش تخصیص سمت"
+        },
+        "DepartmentActivitys": {
+            "Description": "توضیحات",
+            "Department": "دپارتمان",
+            "DepartmentActivity": " فعالیت دپارتمان ",
+            "DepartmentActivityAdd": "افزودن فعالیت دپارتمان ",
+            "DepartmentActivityEdit": "ویرایش فعالیت دپارتمان ",
+            "ActivityDescription": "شرح فعالیت"
+        },
+        "DepartmentActivityTypes": {
+            "Department": "دپارتمان",
+            "DepartmentActivityType": "نوع فعالیت دپارتمان ",
+            "DepartmentActivityTypeAdd": "افزودن نوع فعالیت دپارتمان",
+            "DepartmentActivityTypeEdit": "ویرایش نوع فعالیت دپارتمان"
+        },
+        "Departments": {
+            "Department": "دپارتمان",
+            "DepartmentAdd": "افزودن دپارتمان",
+            "DepartmentEdit": "ویرایش دپارتمان",
+            "DepartmentTitle": "عنوان دپارتمان"
+        },
+        "DepartmentMeeting": {
+            "DepartmentMeetingList": "ليست برگزاري جلسه",
+            "Name": "عنوان جلسه",
+            "MeetingDate": "تاریخ برگزاری",
+            "MeetingTime": "ساعت برگزاری",
+            "DepartmentScheduleId": "عنوان برنامه",
+            "InsertMeeting": "افزودن برگزاری جلسه",
+            "EditMeeting": "ویرایش برگزاری جلسه"
+        },
+        "DepartmentMeetingMemeber": {
+            "DepartmentMemebersList": "ليست اعضاء جلسات دپارتمان",
+            "MeetingName": "عنوان جلسه",
+            "DepartmentName": "دپارتمان",
+            "DepartmentMembers": "اعضاء جلسه",
+            "InsertMeetingMemebr": "افزودن اعضاء جلسه دپارتمان",
+            "EditMeetingMemebr": "ویرایش اعضاء جلسه دپارتمان"
+        },
+        "ProceedingsDepartment": {
+            "ProceedingsDepartmentList": "ليست صورت جلسه",
+            "StartDate": "تاریخ شروع",
+            "StartTime": "ساعت شروع",
+            "EndDate": "تاریخ پایان",
+            "EndTime": "ساعت پایان",
+            "Programs": "برنامه ها",
+            "Comments": "نظرات",
+            "InsertProceeding": "افزودن صورت جلسه",
+            "EditProceeding": "ویرایش صورت جلسه"
+        },
+        "MeetingAttendees": {
+            "MeetingAttendeesList": "لیست حاضرین جلسه",
+            "InsertAttendees": "افزودن حاضرین جلسه",
+            "EditAttendees": "ویرایش حاضرین جلسه",
+            "AttendeesMembers": "اعضاء حاضر در جلسه"
+        },
+        "SessionApprovals": {
+          "SessionApprovalsList": "لیست مصوبات جلسه",
+          "SessionApprovalMembers": "اعضاء دپارتمان پیگیری",
+          "Deadline": "تاریخ مهلت انجام",
+          "InsertSessionApprovals": "افزودن مصوبات جلسه",
+          "EditSessionApprovals": "ویرایش مصوبات جلسه",
+          "Test":"متن مصوبه",
+          "To":"تا",
+          "From":"تاریخ مهلت انجام از"
+        },
+        "Staff": {
+            "Staff": "پرسنل",
+            "Name": "نام",
+            "Family": "نام خانوادگی",
+            "NationalCode": "کد ملی",
+            "BirthDate": "تاریخ تولد",
+            "IdentityNumber": "شناسه ملی",
+            "PersonneliCode": "کد پرسنلی ",
+            "AddNewStaff": "افزودن پرسنل جدید",
+            "EditStaff": "ویرایش پرسنل",
+            "FatherName": "نام پدر",
+            "IdentityIssueDate": "تاریخ صدور شناسنامه",
+            "BirthDateCity": "محل تولد",
+            "IdentityIssueCity": "محل صدور شناسنامه",
+            "Complementary": " اطلاعات تکمیلی پرسنل",
+            "ComplementaryAddress": "نشانی",
+            "ComplementaryTitle": "تکمیلی",
+            "ComplementaryFinancial": "مالی",
+            "ComplementaryDocuments": "مدارک",
+            "ComplementaryResume": "سوابق کاری",
+            "ComplementaryActivities": "فعالیت ها",
+            "ComplementaryFamily": "خانواده",
+            "ComplementaryCooperation": "همکاری",
+            "ComplementarySacrifice": "ایثارگری",
+            "ComplementaryUploadDocuments": "بارگذاری مدارک",
+            "Phone": "تلفن ثابت",
+            "OtherWorkName": "نام محل کار دیگر",
+            "Mobile": "تلفن همراه",
+            "Mobile1": "تلفن همراه 1",
+            "Mobile2": "تلفن همراه 2",
+            "OtherWorkPhone": "تلفن محل کار دیگر",
+            "AddressTypes": "نوع محل سکونت",
+            "Address": "آدرس",
+            "WorkExperienceType": "نوع سابقه",
+            "WorkPlaceName": "محل خدمت",
+            "ActivityField": "زمینه فعالیت",
+            "ActivityDuration": "مدت فعالیت",
+            "ActivityTypeName": "نوع فعالیت",
+            "PublicationDate": "تاریخ نشر",
+            "PublicationName": "نام انتشارات",
+            "ActivityCaseName": "مورد فعالیت",
+            "RelationName": "نسبت",
+            "WorkPhone": "تلفن محل کار",
+            "WorkAddress": "آدرس محل کار",
+            "FileUploadInfo": "حداکثر اندازه فایل الصاقی '5' مگابایت می باشد، پسوندهای مجاز jpg, png, jpeg می باشد",
+            "EducationType": "نوع مدرک",
+            "DegreeReceiptDate": "تاری اخذ مدرک",
+            "InstitutionName": "نام موسسه",
+            "CourseName": "رشته/دوره آموزشی",
+            "Period": "دوره",
+            "UploadDocuments": "بارگذاری مدارک"
+        },
+        "CooperationTypes": {
+            "CooperationType": "نوع همکاری",
+            "CooperationTypeAdd": "افزودن نوع همکاری",
+            "CooperationTypeEdit": "ویرایش نوع همکاری",
+            "CooperationTypeTitle": "عنوان همکاری"
+        },
+        "ActivityCases": {
+            "ActivityCase": "مورد فعالیت",
+            "ActivityCaseAdd": "افزودن مورد فعالیت",
+            "ActivityCaseEdit": "ویرایش مورد فعالیت"
+        },
+        "DepartmentLessons": {
+            "DepartmentLesson": "دروس دپارتمان",
+            "DepartmentLessonAdd": "افزودن دروس دپارتمان ",
+            "DepartmentLessonEdit": "ویرایش دروس دپارتمان ",
+            "Department": "دپارتمان",
+            "Lesson": "درس"
+        },
+        "LessonTypes": {
+            "LessonType": "انواع درس",
+            "LessonTypeAdd": "افزودن انواع درس",
+            "LessonTypeEdit": "ویرایش انواع درس"
+        },
+        "StudyDegrees": {
+            "StudyDegree": "دوره تحصیلی ",
+            "StudyDegreeAdd": "افزودن دوره تحصیلی ",
+            "StudyDegreeEdit": "ویرایش دوره تحصیلی "
+        },
+        "StudyFields": {
+            "StudyField": "رشته تحصیلی ",
+            "StudyFieldAdd": "افزودن رشته تحصیلی ",
+            "StudyFieldEdit": "ویرایش رشته تحصیلی ",
+            "StudyDefree": " دوره تحصیلی"
+        },
+        "StudyGrades": {
+            "StudyGrade": "پایه تحصیلی ",
+            "StudyGradeAdd": "افزودن پایه تحصیلی ",
+            "StudyGradeEdit": "ویرایش پایه تحصیلی ",
+            "EducationBasicCode": "کد پایه آموزرش و پرورش",
+            "StudyFieldId": " رشته تحصیلی"
+        },
+        "Lessons": {
+            "Lesson": "درس",
+            "LessonAdd": "افزودن درس",
+            "LessonEdit": "ویرایش درس",
+            "EducationCourseCode": "کد درس آموزش و پرورش",
+            "LessonTypeId": " نوع درس",
+            "StudyGradeId": " پایه تحصیلی ",
+            "CourseUnits": "تعداد واحد"
+        },
+        "AcademicYears": {
+            "AcademicYear": "سال تحصیلی ",
+            "AcademicYearAdd": "افزودن سال تحصیلی ",
+            "AcademicYearEdit": "ویرایش سال تحصیلی ",
+            "FromDate": "از تاریخ",
+            "ToDate": "تا تاریخ"
+        },
+        "DepartmentMembers": {
+            "DepartmentMember": "اعضاء دپارتمان",
+            "DepartmentMemberAdd": "افزودن اعضاء دپارتمان ",
+            "DepartmentMemberEdit": "ویرایش اعضاء دپارتمان ",
+            "Department": "دپارتمان",
+            "Member": "اعضاء",
+            "Staff": "پرسنل",
+            "Position": "سمت"
+        },
+        "ExecutiveCalendars": {
+            "ExecutiveCalendar": "تقویم اجرایی",
+            "ExecutiveCalendarAdd": "افزودن تقویم اجرایی",
+            "ExecutiveCalendarEdit": "ویرایش تقویم اجرایی",
+            "AcademicYear": "سال تحصیلی"
+        },
+        "DepartmentSchedules": {
+            "ExecutiveCalendarName": "تقویم اجرایی",
+            "DepartmentSchedule": "برنامه دپارتمان",
+            "TimeLimit": "محدوده زمانی",
+            "FromDate": "از تاریخ",
+            "ToDate": "تا تاریخ"
+        }
+    }
+}

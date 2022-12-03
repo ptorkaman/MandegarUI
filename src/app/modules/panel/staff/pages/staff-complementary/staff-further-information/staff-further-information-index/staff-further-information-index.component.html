@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.ComplementaryTitle'" [icon]="'assets/images/icons/staff-complementary.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="p-col-12 col-md-8 mb-2">
+                            <p-panel header="اطلاعات تکمیلی">
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Public.Religion" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="religionId" [options]="religions" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.religionId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.Nationality" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="nationalityId" [options]="nationalities" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.BloodType" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="bloodTypeId" [options]="bloodTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Public.MaritalStatus" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="maritalStatusId" [options]="maritalStatuses" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.maritalStatusId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Public.Military" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="militaryServiceStatusId" [options]="militaryServiceStatuses" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.militaryServiceStatusId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.MilitaryDate" | translate}}</label>
+                                    <app-date-picker formControlName="militaryServiceDate"></app-date-picker>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Public.InsuranceType" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="insuranceTypeId" [options]="insuranceTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.insuranceTypeId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Public.InsuranceNumber" | translate}}</label>
+                                    <input pInputText maxlength="10" formControlName="insuranceNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.insuranceNumber"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.CertificateNumber" | translate}}</label>
+                                    <input pInputText maxlength="32" formControlName="certificateNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.IdentitySerialNumber" | translate}}</label>
+                                    <input pInputText maxlength="10" formControlName="identitySerialNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                            </p-panel>
+                        </div>
+                        <div class="p-col-12 col-md-4">
+                            <app-staff-info [staffId]="staffId"></app-staff-info>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

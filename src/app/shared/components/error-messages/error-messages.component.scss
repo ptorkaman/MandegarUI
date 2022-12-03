@@ -1,0 +1,13 @@
+:host {
+    small.err {
+        display: block;
+        padding: 5px 2px !important;
+        color: #e61b1b;
+        line-height: 1rem;
+        font-size: 9pt;
+        font-weight: bold;
+        &:not(:first-child) {
+            padding-top: 0px !important;
+        }
+    }
+}

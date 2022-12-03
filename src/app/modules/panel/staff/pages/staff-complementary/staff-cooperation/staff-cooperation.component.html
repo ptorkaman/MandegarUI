@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.ComplementaryCooperation'" [icon]="'assets/images/icons/staff-cooperation.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="p-col-12 col-md-8 mb-2">
+                            <p-panel header="اطلاعات همکاری">
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" requiredMark>{{"Pages.CooperationTypes.CooperationTypeTitle" |
+                    translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="cooperationTypeId" [options]="cooperationTypes" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.cooperationTypeId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" requiredMark>{{"Pages.Departments.DepartmentTitle" |
+                    translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentId" [options]="departments" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.departmentId"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Public.IsActive" | translate}}</label>
+                                    <p-inputSwitch formControlName="isActive"></p-inputSwitch>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.StartDate" |
+                    translate}}</label>
+                                    <app-date-picker formControlName="cooperationStartDate"></app-date-picker>
+                                    <mandegar-error-messages [control]="f.cooperationStartDate"></mandegar-error-messages>
+                                </div>
+
+
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label">{{"Pages.ProceedingsDepartment.EndDate" |
+                    translate}}</label>
+                                    <app-date-picker formControlName="cooperationEndDate"></app-date-picker>
+                                    <mandegar-error-messages [control]="f.cooperationEndDate"></mandegar-error-messages>
+                                </div>
+
+                            </p-panel>
+                        </div>
+                        <div class="p-col-12 col-md-4">
+                            <app-staff-info [staffId]="staffId"></app-staff-info>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

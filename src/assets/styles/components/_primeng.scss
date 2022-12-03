@@ -1,0 +1,655 @@
+body .p-component {
+    font-family: 'vazir';
+    font-size: 0.875rem;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
+    background: #e5f3ff !important;
+    color: #000 !important;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
+    /* background: #007bff; */
+    color: #000 !important;
+}
+
+.p-button {
+    height: 40px;
+    margin-right: 0.5rem !important;
+    .p-button-icon-right {
+        margin-right: 0.5rem;
+        margin-left: 0rem;
+    }
+    .p-button-icon-left {
+        margin-left: 0.5rem;
+        margin-right: 0rem;
+    }
+}
+
+.small-view {
+    .p-button {
+        height: 37px;
+    }
+}
+
+.p-checkbox-label,
+.p-radiobutton-label {
+    margin-bottom: 0;
+    margin-right: 0.5rem !important;
+}
+
+.p-inputgroup-addon {
+    border-left: none !important;
+    border-right: 1px solid #ced4da;
+}
+
+.p-inputgroup-addon,
+.p-inputgroup button,
+.p-inputgroup input {
+    &:first-child {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    &:last-child {
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+}
+
+p-toast {
+    text-align: right;
+}
+
+.p-toast-summary,
+.p-toast-detail {
+    margin-right: 1rem !important;
+}
+
+.p-paginator .pi-angle-left:before {
+    content: "\e932";
+}
+
+.p-paginator .pi-angle-right:before {
+    content: "\e931";
+}
+
+.p-paginator .pi-angle-double-left:before {
+    content: "\e92e";
+}
+
+.p-paginator .pi-angle-double-right:before {
+    content: "\e92d";
+}
+
+p-paginator .p-inputtext {
+    padding: 0.5rem 0.75rem !important;
+}
+
+.p-paginator .p-paginator-first {
+    border-radius: 0!important;
+}
+
+.p-paginator .p-paginator-current {
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+.p-paginator .p-paginator-last {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    font-family: 'Vazir' !important;
+}
+
+//-------------------------- dropdown start -------------------------
+.p-dropdown {
+    width: 100%;
+    .p-dropdown-clear-icon {
+        left: 2.357rem;
+        right: auto;
+    }
+    &.p-dropdown-clearable .p-dropdown-label {
+        padding-left: 1.75rem;
+        padding-right: 0.75rem;
+    }
+    .p-dropdown-label {
+        font-family: inherit;
+        padding: 0.5rem 0.75rem;
+    }
+    .p-placeholder.p-dropdown-label {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.p-dropdown-items-wrapper {
+    text-align: right;
+}
+
+.small-view {
+    @-moz-document url-prefix() {
+        .p-dropdown .p-dropdown-label {
+            padding: 0.48rem 0.75rem;
+        }
+    }
+    .p-dropdown .p-placeholder.p-dropdown-label {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.p-disabled .p-dropdown-trigger {
+    display: none;
+}
+
+.small-view .p-button.p-button-icon-only {
+    height: 38px !important;
+    min-width: 38px !important;
+    @-moz-document url-prefix() {
+        height: 37px !important;
+        min-width: 37px !important;
+    }
+    &:first-of-type {
+        margin-right: 0;
+        margin-left: 0.5rem;
+    }
+}
+
+//-------------------------- dropdown end -------------------------
+//-------------------------- p-menubar start -------------------------
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-submenu-icon {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.p-tree .p-tree-filter-container .p-tree-filter {
+    padding-right: 2.2rem;
+}
+
+//-------------------------- p-menubar end -------------------------
+//-------------------------- p-editor start -------------------------
+.ql-editor {
+    text-align: right;
+    font-family: "Vazir";
+    font-size: 14px;
+}
+
+.ql-editor ol,
+.ql-editor ul {
+    padding-right: 1.5em;
+    padding-left: 0px;
+}
+
+.ql-editor li:not(.ql-direction-rtl)::before {
+    margin-right: -1.5em;
+    margin-left: 0.3em;
+    text-align: right;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+    margin-left: 15px;
+    margin-right: 0px;
+}
+
+.ql-formats {
+    &:nth-child(1),
+    &:nth-child(3),
+    &:nth-child(5),
+    &:nth-child(6) {
+        display: none;
+    }
+}
+
+//-------------------------- p-editor end -------------------------
+//-------------------------- p-tree start -------------------------
+.p-tree {
+    .p-tree-container .p-treenode .p-treenode-content {
+        .p-checkbox {
+            margin-left: 0.5rem;
+            margin-right: 0;
+        }
+        .p-tree-toggler {
+            margin-left: 0.5rem;
+            margin-right: 0;
+        }
+    }
+    .p-treenode-icon {
+        margin-right: 0 !important;
+        margin-left: 0.5rem;
+    }
+    .p-treenode-children {
+        padding: 0 1rem 0 0;
+    }
+    .pi-chevron-right:before {
+        content: "\e900";
+    }
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
+    background: #e5f3ff !important;
+    color: #000;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {
+    color: #6c757d !important;
+}
+
+//-------------------------- p-tree end -------------------------
+//-------------------------- multiselect start -------------------------
+.p-multiselect {
+    .p-multiselect-label-container {
+        display: inline-grid;
+    }
+    .p-multiselect-label {
+        font-family: inherit;
+        white-space: initial !important;
+    }
+    .p-placeholder.p-multiselect-label {
+        font-size: 0.75rem;
+        font-family: inherit;
+        padding: 0.5rem 0.75rem;
+    }
+    &.p-multiselect-chip .p-multiselect-token {
+        margin: 0.3rem 0 0.3rem 0.5rem;
+        .p-multiselect-token-icon {
+            margin-left: 0rem;
+            margin-right: 0.5rem;
+        }
+    }
+    .p-multiselect-panel {
+        .p-multiselect-header {
+            padding: 0.75rem 1rem;
+            .p-checkbox {
+                margin-right: 0rem;
+                margin-left: 0.5rem;
+            }
+            .p-multiselect-close {
+                margin-left: 0rem;
+                margin-right: 0.5rem;
+            }
+            .p-multiselect-filter-container .p-multiselect-filter-icon {
+                left: 0.75rem;
+                right: auto;
+            }
+            .p-multiselect-filter-container .p-inputtext {
+                padding-right: 1rem;
+                padding-left: 2rem;
+            }
+        }
+        .p-multiselect-items .p-multiselect-item {
+            padding: 0.5rem 1rem;
+            .p-checkbox {
+                margin-right: 0rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
+.p-multiselect-panel {
+    max-width: 100%;
+}
+
+.p-multiselect-item span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//-------------------------- multiselect end -------------------------
+//------------------------- p-confirm-dialog start -------------------------
+.p-dialog-mask {
+    overflow-y: auto;
+}
+
+.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+    margin-left: 0rem;
+    margin-right: 1rem;
+}
+
+.p-dialog .p-dialog-footer {
+    text-align: left;
+}
+
+//------------------------- p-confirm-dialog end -------------------------
+//------------------------- p-fieldset start -----------------------------
+.p-fieldset {
+    margin-bottom: 0.5rem;
+    &.p-fieldset-toggleable .p-fieldset-legend {
+        margin-right: 1rem;
+        background-color: transparent !important;
+        border: 0px solid #dee2e6;
+        a {
+            padding: 0.5rem 1.25rem;
+            .p-fieldset-toggler {
+                margin-right: 0rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
+.p-fieldset-content {
+    padding: 0 1.25rem 1.25rem !important;
+}
+
+//------------------------- p-fieldset end -----------------------------
+//------------------------- p-field start ------------------------------------
+.p-field>label {
+    font-size: 0.876rem;
+    font-weight: 600;
+}
+
+.p-field {
+    padding: 0.5rem;
+}
+
+//------------------------- p-field end ------------------------------------
+//--------------------------- p-datatable start ------------------------
+.p-datatable {
+    table {
+        table-layout: auto !important;
+    }
+    .p-datatable-header {
+        padding: 0.5rem 1rem;
+        background: #f7f7f7;
+    }
+    .p-datatable-thead>tr>th {
+        padding: 0.6rem;
+        text-align: center !important;
+    }
+    .p-datatable-tbody>tr>td {
+        padding: 0.5rem 0.6rem;
+        text-align: center !important;
+        font-weight: 300;
+        max-width: 200px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
+        background: rgb(247 247 247);
+    }
+    .p-button.p-button-icon-only.p-button-rounded {
+        height: 1.7rem;
+        width: 1.7rem;
+    }
+}
+
+.p-datatable-wrapper {
+    overflow: auto !important;
+}
+
+//--------------------------- p-datatable end ------------------------
+//--------------------------- p-fileupload start ---------------------
+.p-fileupload {
+    .p-fileupload-buttonbar {
+        padding: 0.5rem 1.25rem !important;
+        background: #f7f7f7;
+        span:first-child {
+            margin-right: 0;
+        }
+        span {
+            margin-bottom: 0rem !important;
+        }
+        button {
+            margin-bottom: 0px !important;
+        }
+    }
+    .p-fileupload-content {
+        padding: 1rem 1rem;
+    }
+}
+
+//---------------------------  p-fileupload start ---------------------
+//--------------------------- p-selectbutton start --------------------
+.p-selectbutton .p-button {
+    margin-right: 0!important;
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    &:not(.p-disabled):not(.p-highlight):hover {
+        background: #e9ecef;
+        border-color: #ced4da;
+        color: #495057;
+    }
+    &.p-highlight {
+        background: #2196f3;
+        border-color: #2196f3;
+        color: #ffffff;
+        &:hover {
+            background: #0d89ec;
+            border-color: #0d89ec;
+            color: #ffffff;
+        }
+    }
+}
+
+.p-buttonset .p-button {
+    &:last-of-type {
+        border-bottom-left-radius: 4px !important;
+        border-top-left-radius: 4px !important;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    &:first-of-type {
+        border-bottom-right-radius: 4px !important;
+        border-top-right-radius: 4px !important;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+    &:last-child {
+        border-right: 0;
+    }
+    &:first-child {
+        border-right: 1px solid #ced4da !important;
+    }
+}
+
+//---------------------------  p-selectbutton end --------------------
+//--------------------------- p-menu start --------------------
+.p-menu .p-menuitem-link .p-menuitem-icon {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+//--------------------------- p-menu end --------------------
+//--------------------------- p-message start ---------------
+.p-message {
+    &:last-child {
+        margin-bottom: 1rem;
+    }
+    margin: 0.2rem 0;
+    .p-message-detail {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    .p-message-icon {
+        font-size: 1.5rem;
+        margin-right: 0;
+        margin-left: 0.5rem;
+    }
+    .p-message-wrapper {
+        padding: 0.1rem 0.6rem;
+    }
+    &.p-message-info {
+        background: #dbedfd;
+        border: solid #98ccfd;
+        border-width: 1px;
+    }
+}
+
+//--------------------------- p-message end ---------------
+//--------------------------- p-chips start ---------------
+.p-chips .p-chips-multiple-container .p-chips-token {
+    margin: 0.15rem 0 0.15rem 0.5rem;
+    font-family: "vazir", "tahoma";
+    font-size: 1rem;
+    .p-chips-token-icon {
+        margin-right: 0.5rem;
+        margin-left: 0;
+    }
+}
+
+//--------------------------- p-chips end ---------------
+//--------------------------- p-autocomplete start ---------------
+p-autocomplete {
+    width: 100%;
+    .p-autocomplete-loader {
+        left: 0.75rem;
+        right: auto !important;
+    }
+    .p-autocomplete-multiple-container {
+        .p-autocomplete-token {
+            margin-right: 0 !important;
+            margin-left: 0.5rem;
+            .p-autocomplete-token-icon {
+                margin-left: 0 !important;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .p-autocomplete-multiple-container .p-autocomplete-input-token input {
+        font-family: inherit !important;
+    }
+}
+
+//--------------------------- p-autocomplete end ---------------
+//--------------------------- p-overlaypanel start -------------
+.p-overlaypanel {
+    background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+}
+
+//--------------------------- p-overlaypanel end -------------
+//---------------- p-tooltip start --------------
+.p-tooltip {
+    .p-tooltip-arrow {
+        border-bottom-color: #ced4da !important;
+    }
+    .p-tooltip-text {
+        background: #ffffff;
+        color: #212529;
+        padding: 0.3rem 0.75rem;
+        box-shadow: none;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+    }
+}
+
+//---------------- p-tooltip end ----------------
+.no-label {
+    padding: 0.5rem;
+}
+
+.p-inputtext {
+    width: 100% !important;
+    padding: 0.5rem 0.75rem;
+}
+
+.small-view .p-inputtext {
+    padding: 0.5rem 0.75rem;
+}
+
+@-moz-document url-prefix() {
+    .p-inputtext {
+        padding: 0.5rem 0.75rem;
+    }
+    .small-view .p-inputtext {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.p-inputmask {
+    letter-spacing: 2px;
+}
+
+//---------------------------------- multiselect start -------------------------------------------
+.p-multiselect-panel .p-multiselect-header .p-checkbox {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
+    right: initial;
+    left: 0.75rem;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+    margin-left: initial;
+    margin-right: 0.5rem;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
+    margin-right: initial;
+    margin-left: 0.5rem;
+}
+
+//---------------------------------- multiselect end -------------------------------------------
+.p-tabview .p-tabview-left-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.p-tabview .p-tabview-right-icon {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.p-splitbutton .p-splitbutton-defaultbutton {
+    border-bottom-left-radius: 0 !important;
+    border-left: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-right-radius: 4px !important;
+    border-right: 1px !important;
+    border-top-right-radius: 4px !important;
+    flex: 1 1 auto !important;
+}
+
+.p-splitbutton-menubutton {
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    margin-right: 0px !important;
+}
+
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
+    right: initial;
+    left: 0.75rem;
+}
+
+.blr-none .p-dropdown {
+    border-top-left-radius: 0% !important;
+    border-bottom-left-radius: 0% !important;
+}
+
+.p-panel-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p-inputSwitch {
+    display: block;
+}
+
+p-panel {
+    display: block;
+}

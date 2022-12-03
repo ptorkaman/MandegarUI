@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.DepartmentMeeting.InsertMeeting'" [icon]="'assets/images/icons/meeting-insert.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form" aria-labelledby="title">
+                    <div class="p-fluid p-formgrid p-grid row">
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeeting.Name" | translate}}</label>
+                            <input pInputText formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                            <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                        </div>
+
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeeting.MeetingDate" | translate}}</label>
+                            <app-date-picker formControlName="meetingDate"></app-date-picker>
+                            <mandegar-error-messages [control]="f.meetingDate"></mandegar-error-messages>
+                        </div>
+
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeeting.MeetingTime" | translate}}</label>
+                            <p-calendar appendTo="body" [timeOnly]="true" formControlName="meetingTime" inputId="meetingTime"></p-calendar>
+                            <mandegar-error-messages [control]="f.meetingTime"></mandegar-error-messages>
+                        </div>
+
+                        <div class="p-field p-col-12 col-md-3">
+                            <label class="label" class="form-control-label" [requiredMark]>{{"Pages.DepartmentMeeting.DepartmentScheduleId" | translate}}</label>
+                            <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentScheduleId" [options]="schedules" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                            </p-dropdown>
+                            <mandegar-error-messages [control]="f.departmentScheduleId"></mandegar-error-messages>
+                        </div>
+                    </div>
+
+
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="sendRequest()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

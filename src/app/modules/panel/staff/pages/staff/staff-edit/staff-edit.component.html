@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.Staff.EditStaff'" [icon]="'assets/images/icons/edit-user.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form enctype="multipart/form-data" [formGroup]="form">
+                    <div class="row">
+                        <div class="p-col-12 col-md-8">
+
+                            <p-panel header="اطلاعات فردی" class="mt-2">
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Pages.User.Name" | translate}}</label>
+                                    <input pInputText maxlength="100" formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Pages.User.Family" | translate}}</label>
+                                    <input pInputText maxlength="100" formControlName="family" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.family"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.User.IdentityNumber" | translate}}</label>
+                                    <input appEnglishNumberOnly formControlName="identityNumber" pInputText maxlength="10" [pKeyFilter]="allowNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.identityNumber"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Pages.User.NationalCode" | translate}}</label>
+                                    <input appEnglishNumberOnly formControlName="nationalCode" nationalCode pInputText maxlength="10" [pKeyFilter]="allowNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.nationalCode"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Pages.User.BirthDate" | translate}}</label>
+                                    <app-date-picker formControlName="birthDate"></app-date-picker>
+                                    <mandegar-error-messages [control]="f.birthDate"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.Staff.BirthDateCity" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="birthCityId" [options]="cities" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.Staff.IdentityIssueDate" | translate}}</label>
+                                    <app-date-picker formControlName="identityIssueDate"></app-date-picker>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.Staff.IdentityIssueCity" | translate}}</label>
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="identityIssueCityId" [options]="cities" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}"></p-dropdown>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label" requiredMark>{{"Pages.Staff.FatherName" | translate}}</label>
+                                    <input pInputText maxlength="100" formControlName="fatherName" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.fatherName"></mandegar-error-messages>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.Staff.PersonneliCode" | translate}}</label>
+                                    <input pInputText maxlength="32" formControlName="personneliCode" placeholder="{{ 'Public.Enter' | translate }}" />
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Pages.User.Gender" | translate}}</label>
+                                    <p-selectButton [options]="genderSelection" formControlName="gender" optionLabel="label" optionValue="value"></p-selectButton>
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-6">
+                                    <label class="form-control-label">{{"Public.IsActive" | translate}}</label>
+                                    <p-inputSwitch formControlName="isActive"></p-inputSwitch>
+                                </div>
+
+                            </p-panel>
+
+                        </div>
+                        <div class="p-col-12 col-md-4">
+                            <p-panel header="تصویر پرسنلی">
+
+                                <div class="profile-image-wrp">
+                                    <img [src]="staffImageSrc" id="userAvatar" data-type="img" class="thumbnail" />
+                                    <div id="errormsg"></div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <input type="file" data-type="imgUpload" accept="image/png, image/gif, image/jpeg" #userAvatar (change)="handleUpload($event)" />
+                                </div>
+
+                            </p-panel>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

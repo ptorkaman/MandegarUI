@@ -1,0 +1,170 @@
+// themes - our custom or/and out of the box themes
+@import 'themes';
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/globals';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+// loading progress bar theme
+@import './pace.theme';
+@import './layout';
+@import './overrides';
+@import 'loader.scss';
+@import '../../../assets/styles/components/datepicker';
+@import '../../../assets/styles/components/popover';
+@import '../../../assets/styles/components/toastr';
+// ngx-toastr
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';
+// install the framework and custom global styles
+@include nb-install() {
+    // framework global styles
+    @include nb-theme-global();
+    @include nb-auth-global();
+    @include ngx-layout();
+    // loading progress bar
+    @include ngx-pace-theme();
+    @include nb-overrides();
+}
+
+@import '../../../assets/styles/components/primeng';
+
+/* webkit solution */
+
+::-webkit-input-placeholder {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+
+/* mozilla solution */
+
+input:-moz-placeholder {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+nb-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/////////////////////////////////
+.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.ng-invalid.ng-touched>.p-dropdown:first-child {
+    border-color: red;
+}
+
+.error-block {
+    color: red;
+    font-size: 0.75rem;
+    display: inline-block;
+    padding: 0 5px !important;
+}
+
+.p-datepicker.p-datepicker-timeonly .p-timepicker {
+    direction: ltr !important;
+}
+
+.error-block span {
+    display: block;
+    margin-top: 10px;
+}
+
+.captcha-image {
+    left: 50px;
+    height: 46px;
+    margin-top: 1px;
+    margin-left: 1px;
+}
+
+.refrechCaptchaBtn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 50px;
+    height: 46px;
+    padding: 0;
+    position: absolute;
+    left: 0px;
+    margin-top: 1px;
+    margin-left: 1px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+}
+
+.block {
+    display: block;
+}
+
+.navigation .link nb-icon {
+    display: none !important;
+}
+
+legend {
+    width: auto !important;
+    font-size: 1rem !important;
+    background-color: #f6f9fb !important;
+}
+
+.button-search-container {
+    display: inline-flex;
+    &.no-lable {
+        height: 44px;
+        margin-top: 27px;
+    }
+}
+
+a {
+    text-decoration: none !important;
+}
+
+:host ::ng-deep {
+    .p-fieldset-legend a {
+        background-color: #eaedef;
+    }
+}
+
+.nb-theme-default nb-menu .menu-item .menu-icon {
+    font-size: 0.9rem;
+}
+
+[data-type="img"] {
+    margin: 0.5rem auto;
+    max-width: 100%;
+}
+
+.profile-image-wrp {
+    width: 100%;
+    text-align: center;
+}
+
+.profile-image-wrp img {
+    border-radius: 4px;
+    border: 1px solid #efefef;
+    padding: 5px;
+}
+
+.ltr {
+    direction: ltr !important;
+    text-align: left !important;
+     ::-webkit-input-placeholder {
+        text-align: left;
+    }
+    input:-moz-placeholder {
+        text-align: left;
+    }
+}
+
+;

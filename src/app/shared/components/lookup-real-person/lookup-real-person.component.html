@@ -1,0 +1,98 @@
+<div class="position-relative">
+    <p-multiSelect [readonly]="true" [(ngModel)]="selecteds" [options]="selectedItems" display="chip" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" (ngModelChange)="updateSelecteds($event)"></p-multiSelect>
+    <button pButton pRipple type="button" (click)="display=true" icon="pi pi-search" class="p-button-success p-button-text position-absolute open-lookup"></button>
+</div>
+
+<div class="card">
+    <div class="body">
+
+        <p-dialog *ngIf="display" [contentStyle]="{'overflow': 'visible'}" [(visible)]="display" header="{{ 'Pages.RealPerson.SearchRealPerson' | translate }}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="medium"
+            (onHide)="cancelClick()">
+
+            <ng-template pTemplate="content">
+
+                <p-fieldset legend="{{ 'Public.Search' | translate }}" [toggleable]="true">
+                    <div id="formSearch" [formGroup]="form">
+                        <div class="row">
+                            <div class="p-field p-col-12 col-md-4">
+                                <label class="form-control-label">{{"Pages.User.Name" | translate}}</label>
+                                <input pInputText maxlength="24" formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                            </div>
+
+                            <div class="p-field p-col-12 col-md-4">
+                                <label class="form-control-label">{{"Pages.User.Family" | translate}}</label>
+                                <input pInputText maxlength="24" formControlName="family" placeholder="{{ 'Public.Enter' | translate }}" />
+                            </div>
+
+                            <div class="p-field p-col-12 col-md-4">
+                                <label class="form-control-label">{{"Pages.Auth.Username" | translate}}</label>
+                                <input pInputText maxlength="24" formControlName="username" placeholder="{{ 'Public.Enter' | translate }}" />
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </p-fieldset>
+
+
+                <div class="action-buttons">
+
+                    <button pButton pRipple icon="pi pi-undo" label="{{'Public.Clear' | translate}}" tooltipPosition="bottom" class="p-button-secondary float-left" (click)="clearForm()"></button>
+                    <button pButton pRipple [disabled]="!form.valid" icon="pi pi-search" label="{{'Public.Search' | translate}}" tooltipPosition="bottom" class="p-button-primary mr-1 float-left" (click)="search()" [loading]="loading"></button>
+                </div>
+
+
+                <div class="scrollable">
+                    <p-table #dt [value]="realPersons" [columns]="cols" [reorderableColumns]="true" [lazy]="true" (onLazyLoad)="loadLazy($event)" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+                        paginatorDropdownAppendTo="body" currentPageReportTemplate="{first} - {last} از {totalRecords} آیتم" [loading]="loading" styleClass="p-datatable-striped p-datatable-gridlines">
+
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th class="text-center"> {{'Public.SelectText' | translate}} </th>
+                                <th *ngFor="let col of columns" class="text-center" pReorderableColumn>
+                                    {{col.header | translate}}
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                            <tr>
+                                <td class="text-center">
+                                    <button pButton type="button" class="p-button-rounded p-button-text" icon="pi pi-check" (click)="selectBtnClick(rowData)"></button>
+                                </td>
+                                <td [ngSwitch]="col.field" *ngFor="let col of columns" class="text-center">
+                                    <ng-container *ngSwitchDefault>
+                                        {{rowData[col.field]}}
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'mustCheckIp'">
+                                        <i class="pi pi-check" *ngIf="rowData[col.field]===true"></i>
+                                        <i class="pi pi-times" *ngIf="rowData[col.field]===false"></i>
+                                    </ng-container>
+
+                                    <ng-container *ngSwitchCase="'isActive'">
+                                        <i class="pi pi-check" *ngIf="rowData[col.field]===true"></i>
+                                        <i class="pi pi-times" *ngIf="rowData[col.field]===false"></i>
+                                    </ng-container>
+
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage" let-columns>
+                            <tr>
+                                <td class="text-right" [attr.colspan]="columns.length + 1">
+                                    رکوردی یافت نشد
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+
+                </div>
+
+            </ng-template>
+
+
+
+        </p-dialog>
+    </div>
+</div>

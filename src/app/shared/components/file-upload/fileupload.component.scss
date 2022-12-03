@@ -1,0 +1,105 @@
+::ng-deep {
+    .p-message .p-message-wrapper {
+        padding: 0.5rem;
+    }
+    .p-message {
+        margin: 0.5rem 0 !important;
+    }
+}
+
+//------------------- fileupload start ---------------------------------------------------
+// app-fileupload {
+.info-message .p-message {
+    margin-bottom: 0.1rem;
+}
+
+.info-message-icon {
+    font-size: 22px;
+    margin: 7px;
+}
+
+// }
+.pdn-fileupload-content {
+    ul {
+        list-style: none;
+        list-style-type: none;
+        padding-left: 0em;
+        text-indent: 0em;
+        margin: 0px;
+        padding: 0px;
+        >li {
+            color: #656565;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0);
+            line-height: 31px;
+            &:last-child {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            }
+            &:hover {
+                background: #e9ecef;
+                color: #495057;
+            }
+            span.container-button {
+                float: left;
+            }
+            i {
+                margin-left: 5px;
+                margin-right: 10px;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+            button {
+                width: 25px !important;
+                height: 25px !important;
+                margin: 5px 0px 5px 15px !important;
+                .pi {
+                    font-size: 0.78rem;
+                }
+            }
+        }
+    }
+    .no-record {
+        color: #656565;
+        font-size: 14px;
+    }
+}
+
+.pdn-fileupload-item {
+    color: #656565;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    line-height: 31px;
+    &:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        margin-bottom: 10px;
+    }
+    &:hover {
+        background: #e9ecef;
+        color: #495057;
+    }
+    span.container-button {
+        float: left;
+    }
+    i {
+        margin-left: 5px;
+        margin-right: 10px;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    button {
+        width: 25px !important;
+        height: 25px !important;
+        margin: 5px 0px 5px 15px !important;
+        .pi {
+            font-size: 0.78rem;
+        }
+    }
+}
+
+.search {
+    .p-fieldset .p-fieldset-content {
+        padding: 0rem 1.25rem;
+    }
+}
+
+//-------------------  fileupload end ---------------------------------------------------

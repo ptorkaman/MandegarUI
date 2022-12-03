@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>
+                <app-page-header [title]="'Pages.DepartmentMeetingMemeber.DepartmentMemebersList'" [icon]="'assets/images/icons/people.png'">
+                </app-page-header>
+
+            </nb-card-header>
+            <nb-card-body>
+
+                <!-- searchPanel -->
+
+                <p-fieldset class="search small-view" legend="{{ 'Public.Search' | translate }}" [toggleable]="true">
+                    <div [formGroup]="form">
+                        <div class="p-fluid p-formgrid p-grid row">
+
+                            <div class="p-field p-col-12 col-md-3">
+                                <label class="form-control-label">{{"Pages.DepartmentMeetingMemeber.MeetingName" | translate}}</label>
+                                <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentMeetingId" [options]="meetings" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                    [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                                </p-dropdown>
+                            </div>
+
+                            <div class="p-field p-col-12 col-md-3">
+                                <label class="form-control-label">{{"Pages.DepartmentMeetingMemeber.DepartmentName" | translate}}</label>
+                                <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentId" [options]="departments" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                    [autoDisplayFirst]="false" placeholder="{{'Public.Select' | translate}}">
+                                </p-dropdown>
+                            </div>
+
+                            <div class="p-field p-col-12 col-md-6">
+                                <label class="form-control-label">{{"Pages.DepartmentMeetingMemeber.DepartmentMembers" | translate}}</label>
+                                <p-multiSelect [filter]="true" [options]="members" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" formControlName="departmentMemberIds" [showClear]="true" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}"
+                                    defaultLabel="{{'Public.Select' | translate}}" optionLabel="name"></p-multiSelect>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-1 text-left">
+                            <div class="col-md-12">
+                                <button [disabled]="!form.valid" pButton pRipple icon="pi pi-search" label="{{'Public.Search' | translate}}" tooltipPosition="bottom" class="p-button-success mr-1" (click)="search()" [loading]="loading"></button>
+                                <button pButton pRipple icon="pi pi-undo" label="{{'Public.Clear' | translate}}" tooltipPosition="bottom" class="p-button-outlined p-button-primary" (click)="clearForm()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </p-fieldset>
+
+                <!-- Grid -->
+                <div class="scrollable">
+                    <p-table #dt [value]="meetingMembers" [columns]="cols" [reorderableColumns]="true" [lazy]="true" (onLazyLoad)="loadLazy($event)" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [showCurrentPageReport]="true" currentPageReportTemplate="{first} - {last} از {totalRecords} آیتم"
+                        [loading]="loading" [rowsPerPageOptions]="[10,25,50]" paginatorDropdownAppendTo="body" styleClass="p-datatable-striped p-datatable-gridlines">
+
+                        <ng-template pTemplate="caption">
+                            <div class="p-d-flex p-ai-center p-jc-between">
+                                <div class="right">
+                                    <button pButton pRipple label="{{'Public.Insert' | translate}}" icon="pi pi-plus" class="p-mr-2" (click)="navigateToAdd()"></button>
+                                </div>
+
+                                <div class="left"> </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th *ngFor="let col of columns" class="text-center" pReorderableColumn>
+                                    {{col.header | translate}}
+                                </th>
+                                <th class="text-center"> {{'Pages.DepartmentMeetingMemeber.DepartmentMembers' | translate}} </th>
+                                <th class="text-center"> {{'Public.Operation' | translate}} </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+                            <tr>
+                                <td [ngSwitch]="col.field" *ngFor="let col of columns" class="text-center">
+                                    <ng-container *ngSwitchCase="'lastLogin'">
+                                        {{rowData[col.field] | dateTimeFormat: 'date' : 'fa'}}
+                                    </ng-container>
+
+                                    <ng-container *ngSwitchCase="'isActive'">
+                                        <i class="pi pi-check" *ngIf="rowData[col.field]===true"></i>
+                                        <i class="pi pi-times" *ngIf="rowData[col.field]===false"></i>
+                                    </ng-container>
+
+                                    <ng-container *ngSwitchDefault>
+                                        {{rowData[col.field]}}
+                                    </ng-container>
+                                </td>
+                                <td>
+                                    <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-success p-mr-2" (click)="showMembers(rowData,$event)"></button>
+                                </td>
+                                <td class="text-center">
+                                    <button pButton type="button" class="p-button-rounded  p-button-text" icon="pi pi-ellipsis-h" (click)="rowBtnClick(menu,rowData,$event)"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage" let-columns>
+                            <tr>
+                                <td class="text-right" [attr.colspan]="columns.length + 1">
+                                    رکوردی یافت نشد
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<p-menu #menu popup="popup" appendTo="body" [model]="btnMenuItems" styleClass="tbl__ui-menu"></p-menu>
+
+<p-confirmDialog header="{{'Public.Delete' | translate}}" acceptLabel="{{'Public.Yes' | translate}}" rejectLabel="{{'Public.No' | translate}}" icon="pi pi-exclamation-triangle" acceptButtonStyleClass="p-button-danger"></p-confirmDialog>
+
+<p-dialog [contentStyle]="{'overflow': 'visible'}" [(visible)]="display" header="{{'Pages.DepartmentMeetingMemeber.DepartmentMembers' | translate}}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="small">
+    <p-timeline [value]="memberInfo" align="right" dir="ltr">
+        <ng-template pTemplate="content" let-event>
+            {{event.fullName}}
+        </ng-template>
+    </p-timeline>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="display=false"></button>
+    </ng-template>
+</p-dialog>

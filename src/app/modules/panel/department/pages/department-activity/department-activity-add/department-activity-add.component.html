@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header class="clearfix">
+                <div class="float-right">
+                    <app-page-header [title]="'Pages.DepartmentActivitys.DepartmentActivityAdd'" [icon]="'assets/images/icons/department.png'">
+                    </app-page-header>
+                </div>
+                <div class="float-left">
+                    <button pButton pRipple type="button" label="{{'Public.Back' | translate}}" icon="pi pi-arrow-left" iconPos="right" (click)="cancelClick()" class="p-button-outlined p-button-secondary"></button>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form [formGroup]="form">
+
+                    <div class="row">
+                        <div class="p-col-12 col-md-8">
+                            <p-panel header="اطلاعات فعالیت دپارتمان">
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label" [requiredMark]>{{
+                    "Public.Name" | translate
+                    }}</label>
+                                    <input appEnglishNumberOnly pInputText  formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                                    <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                                </div>
+                                <div class="p-field p-col-12 col-md-4">
+                                    <label class="form-control-label d-block"  [requiredMark]>{{"Pages.DepartmentActivitys.Department" | translate}}</label>
+
+                                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="departmentId" [options]="departmentList" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                                        placeholder="{{'Public.Select' | translate}}">
+                                    </p-dropdown>
+                                    <mandegar-error-messages [control]="f.departmentId"></mandegar-error-messages>
+
+                                </div>
+
+                                <div class="p-field p-col-12 col-md-12">
+                                    <label class="form-control-label d-block">{{"Pages.DepartmentActivitys.ActivityDescription" | translate}}</label>
+                                    <textarea formControlName="activityDescription" cols="100" rows="5"></textarea>
+                                </div>
+                                <div class="p-field p-col-12 col-md-12">
+                                    <label class="form-control-label d-block">{{"Pages.DepartmentActivitys.Description" | translate}}</label>
+                                    <textarea formControlName="description" cols="100" rows="5"></textarea>
+                                </div>
+
+
+                            </p-panel>
+                        </div>
+                        <div class="p-col-12 col-md-4">
+                            <p-panel header="تصویر فایل">
+                                <div class="profile-image-wrp">
+                                    <img src="assets/images/Default.jpg" id="attachmentFile" data-type="img" class="thumbnail" />
+                                    <div id="errormsg"></div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <input type="file" data-type="imgUpload" accept="image/png, image/gif, image/jpeg" #attachmentFile (change)="handleUpload($event)" formControlName="attachmentFile" />
+                                </div>
+                            </p-panel>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="p-text-left">
+                    <button pButton pRipple label="{{'Public.Submit' | translate}}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+                    <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

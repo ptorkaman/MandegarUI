@@ -1,0 +1,19 @@
+.popover {
+    max-width: 360px !important;
+    box-shadow: 1px 2px 10px #2020231A;
+    border-radius: 5px;
+    border: 1px solid #c3d1dc;
+    .popover-header {
+        font-size: 0.9rem !important;
+        border-radius: 5px 5px 0 0;
+    }
+    .popover-body {
+        font-size: .8rem !important;
+        border-radius: 0 0 5px 5px;
+        text-align: justify;
+    }
+    .popover-header,
+    .popover-body {
+        font-family: "Vazir", sans-serif !important;
+    }
+}

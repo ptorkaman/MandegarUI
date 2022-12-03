@@ -1,0 +1,101 @@
+<p-dialog [(visible)]="display" header="ثبت " [baseZIndex]="10000" [draggable]="false" [resizable]="false" [modal]="true" [breakpoints]="large" (onHide)="cancelClick()">
+    <ng-template pTemplate="content">
+        <form [formGroup]="form">
+            <div class="row">
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" requiredMark>{{"Public.Name" | translate}}</label>
+                    <input pInputText maxlength="32" formControlName="name" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.name"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" requiredMark>{{"Pages.User.Family" | translate}}</label>
+                    <input pInputText maxlength="32" formControlName="family" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.family"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" requiredMark>{{"Pages.User.NationalCode" | translate}}</label>
+                    <input pInputText maxlength="10" [pKeyFilter]="allowNumber" formControlName="nationalCode" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.nationalCode"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Pages.User.IdentityNumber" | translate}}</label>
+                    <input pInputText maxlength="10" [pKeyFilter]="allowNumber" formControlName="identityNumber" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Pages.User.BirthDate" | translate}}</label>
+                    <app-date-picker formControlName="birthDate"></app-date-picker>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" [requiredMark]>{{ "Pages.Staff.RelationName" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="relationId" [options]="relations" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                    <mandegar-error-messages [control]="f.relationId"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Pages.Auth.Email" | translate}}</label>
+                    <input pInputText maxlength="100" formControlName="email" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.email"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{ "Public.MaritalStatus" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="maritalStatusId" [options]="maritalStatuses" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}"
+                        placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{ "Public.Education" | translate }}</label>
+                    <p-dropdown [filter]="true" emptyFilterMessage="{{'Public.EmptyFilterMessage' | translate}}" [showClear]="true" formControlName="educationId" [options]="educations" appendTo="body" baseZIndex="1" emptyMessage="{{'Public.EmptyMessage' | translate}}" placeholder="{{'Public.Select' | translate}}">
+                    </p-dropdown>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Pages.StudyFields.StudyField" | translate}}</label>
+                    <input pInputText maxlength="50" formControlName="studyField" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Public.Job" | translate}}</label>
+                    <input pInputText maxlength="50" formControlName="job" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.Phone" | translate}}</label>
+                    <input pInputText maxlength="11" [pKeyFilter]="allowNumber" formControlName="phone" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.phone"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label" requiredMark>{{"Pages.Staff.Mobile" | translate}}</label>
+                    <input pInputText maxlength="11" [pKeyFilter]="allowNumber" formControlName="mobile" placeholder="{{ 'Public.Enter' | translate }}" />
+                    <mandegar-error-messages [control]="f.mobile"></mandegar-error-messages>
+                </div>
+
+                <div class="p-field p-col-12 col-md-3">
+                    <label class="form-control-label">{{"Pages.Staff.WorkPhone" | translate}}</label>
+                    <input pInputText maxlength="11" [pKeyFilter]="allowNumber" formControlName="workPhone" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+                <div class="p-field p-col-12 col-md-12">
+                    <label class="form-control-label">{{"Pages.Staff.WorkAddress" | translate}}</label>
+                    <input pInputTextarea maxlength="200" formControlName="workAddress" placeholder="{{ 'Public.Enter' | translate }}" />
+                </div>
+
+            </div>
+        </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="p-text-left">
+            <button pButton pRipple label="{{ 'Public.Submit' | translate }}" icon="pi pi-check" iconPos="left" class="" (click)="acceptClick()"></button>
+            <button pButton pRipple label="{{ 'Public.Back' | translate }}" icon="pi pi-arrow-left" iconPos="right" class="p-button-outlined" (click)="cancelClick()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

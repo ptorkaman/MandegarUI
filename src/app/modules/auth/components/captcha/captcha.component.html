@@ -1,0 +1,12 @@
+<div class="form-control-group position-relative">
+    <label class="label" requiredMark>{{"Pages.Auth.Captcha" | translate}}</label>
+    <input nbInput appNumeric="4" fullWidth fieldSize="large" [(ngModel)]="value" (input)="changeValue()" (blur)="changeValue()" placeholder="{{'Public.Enter' | translate}}" autocomplete="off">
+
+    <a class="btn btn-sm refrechCaptchaBtn" (click)="getCaptcha()">
+        <img src="../../../../../assets/images/refreshcaptcha.png" />
+    </a>
+    <img [src]="captchaImageSrc" class="position-absolute captcha-image" />
+
+    <small class="err" *ngIf="errorMessage"> {{errorMessage}} </small>
+
+</div>
